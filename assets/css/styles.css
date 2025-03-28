@@ -1010,6 +1010,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   border-radius: var(--radius-sm);
   transition: var(--transition);
+  border-radius: 26px;
 }
 
 .directions-button:hover {
