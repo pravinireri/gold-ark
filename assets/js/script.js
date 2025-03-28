@@ -1,277 +1,196 @@
+// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Set current year in footer
+  // Current year for footer copyright
   document.getElementById('currentYear').textContent = new Date().getFullYear();
   
-  // Initialize smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
-      const href = this.getAttribute('href');
-      if (!href) return;
-      
-      const targetElement = document.querySelector(href);
-      if (!targetElement) return;
-      
-      // Close mobile menu if open
-      if (mobileMenu.classList.contains('active')) {
-        toggleMobileMenu();
-      }
-      
-      targetElement.scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-  
-  // Navbar scroll effect
-  const navbar = document.querySelector('.navbar');
-  
-  function checkScroll() {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
-  
-  window.addEventListener('scroll', checkScroll);
-  checkScroll(); // Check initial scroll position
-  
-  // Mobile menu functionality
-  const mobileMenuToggle = document.querySelector('.mobile-nav-toggle');
+  // Mobile Navigation Toggle
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
   
-  function toggleMobileMenu() {
-    mobileMenuToggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
-  }
-  
-  mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-  
-  // Animated hero title
-  const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
+  if (mobileNavToggle && mobileMenu) {
+    mobileNavToggle.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !expanded);
+      this.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+    });
     
-    for (let i = 0; i < text.length; i++) {
-      const span = document.createElement('span');
-      span.textContent = text[i] === ' ' ? '\u00A0' : text[i]; // Use non-breaking space for spaces
-      heroTitle.appendChild(span);
-    }
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileNavToggle.classList.remove('active');
+        mobileNavToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      });
+    });
   }
   
-  // Menu tabs functionality
+  // Menu Tabs
   const tabTriggers = document.querySelectorAll('.tab-trigger');
   const tabContents = document.querySelectorAll('.tab-content');
   
-  function setActiveTab(tabId) {
-    // Remove active class from all tabs and contents
-    tabTriggers.forEach(tab => tab.classList.remove('active'));
-    tabContents.forEach(content => content.classList.remove('active'));
+  if (tabTriggers.length && tabContents.length) {
+    tabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        // Remove active class from all triggers
+        tabTriggers.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked trigger
+        this.classList.add('active');
+        
+        // Get the tab ID
+        const tabId = this.getAttribute('data-tab');
+        
+        // Hide all tab contents
+        tabContents.forEach(content => {
+          content.style.display = 'none';
+          content.classList.remove('active');
+        });
+        
+        // Show the selected tab content
+        const activeContent = document.getElementById(tabId + '-content');
+        if (activeContent) {
+          activeContent.style.display = 'block';
+          activeContent.classList.add('active');
+        }
+      });
+    });
     
-    // Add active class to selected tab and content
-    const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
-    const selectedContent = document.getElementById(`${tabId}-content`);
-    
-    if (selectedTab && selectedContent) {
-      selectedTab.classList.add('active');
-      selectedContent.classList.add('active');
+    // Set initial active tab
+    if (tabTriggers[0]) {
+      tabTriggers[0].click();
     }
   }
   
-  tabTriggers.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.getAttribute('data-tab');
-      setActiveTab(tabId);
-    });
-  });
+  // Animation for stats counter
+  const countUpElements = document.querySelectorAll('.count-up');
+  let animationTriggered = false;
   
-  // Initialize first tab
-  if (tabTriggers.length > 0) {
-    const firstTabId = tabTriggers[0].getAttribute('data-tab');
-    setActiveTab(firstTabId);
+  function animateCountUp() {
+    if (animationTriggered) return;
+    
+    const aboutSection = document.querySelector('.about');
+    if (!aboutSection) return;
+    
+    const aboutPosition = aboutSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+    
+    if (aboutPosition < screenPosition) {
+      animationTriggered = true;
+      
+      countUpElements.forEach(element => {
+        const targetCount = parseFloat(element.getAttribute('data-count'));
+        const decimalPlaces = targetCount % 1 !== 0 ? 1 : 0;
+        let currentCount = 0;
+        const duration = 2000; // ms
+        const interval = 20; // ms
+        const increment = targetCount / (duration / interval);
+        
+        const counter = setInterval(() => {
+          currentCount += increment;
+          if (currentCount >= targetCount) {
+            element.textContent = targetCount.toFixed(decimalPlaces);
+            clearInterval(counter);
+          } else {
+            element.textContent = currentCount.toFixed(decimalPlaces);
+          }
+        }, interval);
+      });
+    }
   }
   
-  // Reservation form handling
-  const reservationForm = document.getElementById('reservationForm');
+  // Check for count up animation on scroll
+  window.addEventListener('scroll', animateCountUp);
+  // Also check on initial load
+  animateCountUp();
   
+  // Navbar scroll effect
+  function handleNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+  }
+  
+  window.addEventListener('scroll', handleNavbarScroll);
+  // Initial check
+  handleNavbarScroll();
+  
+  // Reservation Form Submission
+  const reservationForm = document.getElementById('reservationForm');
   if (reservationForm) {
     reservationForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(reservationForm);
-      const reservationData = {};
-      formData.forEach((value, key) => {
-        reservationData[key] = value;
-      });
-      
-      console.log('Reservation data:', reservationData);
-      
-      // Show success message using toast
-      showToast('Reservation Submitted', "We'll confirm your reservation shortly. Thank you!");
-      
-      // Reset form
-      reservationForm.reset();
+      // Show success toast
+      showToast('Reservation submitted successfully! We\'ll contact you soon to confirm.', 'success');
+      this.reset();
     });
   }
   
-  // Newsletter form handling
+  // Newsletter Form Submission
   const newsletterForm = document.querySelector('.newsletter-form');
-  
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const emailInput = newsletterForm.querySelector('input[type="email"]');
-      const email = emailInput.value.trim();
-      
-      if (email) {
-        console.log('Newsletter subscription for:', email);
-        showToast('Subscription Successful', 'Thank you for subscribing to our newsletter!');
-        emailInput.value = '';
-      }
+      // Show success toast
+      showToast('Thank you for subscribing to our newsletter!', 'success');
+      this.reset();
     });
   }
   
-  // Toast notification system
-  function showToast(title, message, duration = 5000) {
+  // Toast Notification Function
+  function showToast(message, type = 'info') {
     const toastContainer = document.getElementById('toast-container');
     
-    // Create toast element
     const toast = document.createElement('div');
-    toast.className = 'toast';
+    toast.className = `toast toast-${type}`;
     
-    // Create toast content
+    const iconMap = {
+      success: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+      info: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="8"></line></svg>',
+      warning: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17"></line></svg>',
+      error: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
+    };
+    
     toast.innerHTML = `
-      <div>
-        <strong>${title}</strong>
-        <p>${message}</p>
-      </div>
-      <button class="toast-close" aria-label="Close">×</button>
+      <div class="toast-icon">${iconMap[type] || iconMap.info}</div>
+      <div class="toast-message">${message}</div>
+      <button class="toast-close" aria-label="Close notification">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     `;
     
-    // Add toast to container
     toastContainer.appendChild(toast);
     
-    // Add close event to button
-    const closeButton = toast.querySelector('.toast-close');
-    closeButton.addEventListener('click', () => {
+    // Add active class to trigger animation
+    setTimeout(() => {
+      toast.classList.add('active');
+    }, 10);
+    
+    // Close button functionality
+    const closeBtn = toast.querySelector('.toast-close');
+    closeBtn.addEventListener('click', () => {
       removeToast(toast);
     });
     
-    // Auto remove after duration
+    // Auto-remove after 5 seconds
     setTimeout(() => {
-      if (toast.parentNode === toastContainer) {
-        removeToast(toast);
-      }
-    }, duration);
+      removeToast(toast);
+    }, 5000);
   }
   
   function removeToast(toast) {
-    toast.style.animation = 'slideOutRight 0.3s forwards';
-    
-    toast.addEventListener('animationend', () => {
-      if (toast.parentNode) {
-        toast.parentNode.removeChild(toast);
-      }
+    toast.classList.remove('active');
+    toast.addEventListener('transitionend', () => {
+      toast.remove();
     });
-  }
-  
-  // Add scroll-based animations for elements
-  function addScrollAnimations() {
-    const animateOnScroll = function(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-    
-    const observer = new IntersectionObserver(animateOnScroll, {
-      threshold: 0.1
-    });
-    
-    document.querySelectorAll('.about-image-container, .about-text, .menu-item, .reservation-form-container, .contact-card, .map-container').forEach(element => {
-      element.classList.add('fade-in-element');
-      observer.observe(element);
-    });
-  }
-  
-  // Add CSS for scroll animations
-  const style = document.createElement('style');
-  style.textContent = `
-    .fade-in-element {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
-    .fade-in-element.animated {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-  document.head.appendChild(style);
-  
-  // Initialize scroll animations
-  addScrollAnimations();
-  
-  // Count Up Animation for Stats
-  const countElements = document.querySelectorAll('.count-up');
-  
-  function animateCountUp() {
-    countElements.forEach(element => {
-      const target = parseFloat(element.getAttribute('data-count'));
-      const duration = 2000; // 2 seconds
-      let startTimestamp = null;
-      const startValue = 0;
-      
-      // Check if already animated
-      if (element.classList.contains('counted')) return;
-      
-      function step(timestamp) {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        let currentCount = progress * (target - startValue) + startValue;
-        
-        // Handle decimal places for ratings
-        if (target % 1 !== 0) {
-          currentCount = currentCount.toFixed(1);
-        } else {
-          currentCount = Math.floor(currentCount);
-        }
-        
-        element.textContent = currentCount;
-        
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          element.classList.add('counted');
-        }
-      }
-      
-      window.requestAnimationFrame(step);
-    });
-  }
-  
-  // Intersection Observer for count-up animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCountUp();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  // Observe the stats container
-  const statsContainer = document.querySelector('.stats-container');
-  if (statsContainer) {
-    observer.observe(statsContainer);
   }
 });

@@ -48,8 +48,8 @@
             </div>
             <h1 class="menu-title">Our Complete Menu</h1>
             <p class="menu-description">
-                Explore our carefully crafted menu featuring the finest ingredients, 
-                expertly prepared by our culinary team to create unforgettable dining experiences.
+                Explore our authentic East African cuisine featuring traditional favorites 
+                and signature dishes prepared with care.
             </p>
         </div>
     </section>
@@ -58,395 +58,245 @@
     <section class="full-menu-section">
         <div class="container">
             <div class="menu-filters">
-                <button class="menu-filter-btn active" data-category="all">All</button>
-                <button class="menu-filter-btn" data-category="starters">Starters</button>
-                <button class="menu-filter-btn" data-category="mains">Main Courses</button>
-                <button class="menu-filter-btn" data-category="desserts">Desserts</button>
-                <button class="menu-filter-btn" data-category="drinks">Drinks</button>
-                <button class="menu-filter-btn" data-category="specials">Chef's Specials</button>
+                <button class="menu-filter-btn active" data-filter="all">All</button>
+                <button class="menu-filter-btn" data-filter="main-dishes">Main Dishes</button>
+                <button class="menu-filter-btn" data-filter="breakfast">Breakfast</button>
+                <button class="menu-filter-btn" data-filter="beverages">Beverages</button>
+                <button class="menu-filter-btn" data-filter="accompaniments">Accompaniments</button>
             </div>
 
             <div class="menu-grid">
-                <!-- Starters -->
-                <div class="menu-category" id="starters">
-                    <h2 class="menu-category-title">Starters</h2>
+                <!-- Main Dishes -->
+                <div class="menu-category" data-category="main-dishes">
+                    <h2 class="menu-category-title">Main Dishes</h2>
                     
                     <div class="menu-items-grid">
-                        <div class="menu-card" data-category="starters">
+                        <div class="menu-card" data-category="main-dishes">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1593261926005-4e6a6849c852?q=80&w=2070" alt="Truffle Arancini">
+                                <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?q=80&w=1974" alt="Beef Stew">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Truffle Arancini</h3>
-                                    <span class="price">$18</span>
+                                    <h3>Beef Stew</h3>
+                                    <span class="price">350/=</span>
                                 </div>
-                                <p>Wild mushroom risotto balls with truffle aioli</p>
+                                <p>Slow-cooked beef in rich gravy with vegetables</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="starters">
+                        <div class="menu-card" data-category="main-dishes">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1599021456807-25db0f974333?q=80&w=1974" alt="Seared Scallops">
+                                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1770" alt="Beef Fried">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Seared Scallops</h3>
-                                    <span class="price">$22</span>
+                                    <h3>Beef Fried</h3>
+                                    <span class="price">350/=</span>
                                 </div>
-                                <p>With pea purée and crispy pancetta</p>
+                                <p>Tender beef strips stir-fried with vegetables</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="starters">
+                        <div class="menu-card" data-category="main-dishes">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1568376794508-ae52c6ab3929?q=80&w=1974" alt="Beef Carpaccio">
+                                <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80&w=1770" alt="Beef Dry Fried">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Beef Carpaccio</h3>
-                                    <span class="price">$20</span>
+                                    <h3>Beef Dry Fried</h3>
+                                    <span class="price">350/=</span>
                                 </div>
-                                <p>Thinly sliced prime beef with rocket, parmesan, and truffle oil</p>
+                                <p>Crispy beef strips fried with spices</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="starters">
+                        <div class="menu-card" data-category="main-dishes">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1625944525520-b1c0d1b0bc5a?q=80&w=1974" alt="Crab Cakes">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1974" alt="Chicken Curry">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Crab Cakes</h3>
-                                    <span class="price">$24</span>
+                                    <h3>Chicken Curry</h3>
+                                    <span class="price">400/=</span>
                                 </div>
-                                <p>Lump crab meat with aioli and micro herbs</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="starters">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1505253668822-42074d58a7c6?q=80&w=1974" alt="Burrata">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Burrata</h3>
-                                    <span class="price">$19</span>
-                                </div>
-                                <p>Creamy burrata with heirloom tomatoes, basil oil, and aged balsamic</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="additional-items" id="additional-starters">
-                        <div class="menu-card" data-category="starters">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1623945359564-d82e3f5b4dd2?q=80&w=1974" alt="Prawn Cocktail">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Prawn Cocktail</h3>
-                                    <span class="price">$21</span>
-                                </div>
-                                <p>Classic prawn cocktail with homemade marie rose sauce</p>
-                            </div>
-                        </div>
-                        
-                        <div class="menu-card" data-category="starters">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1625938703450-936b593f4542?q=80&w=1974" alt="Foie Gras">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Foie Gras</h3>
-                                    <span class="price">$28</span>
-                                </div>
-                                <p>Pan-seared foie gras with toasted brioche and fig jam</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="see-more-btn-container">
-                        <button class="see-more-btn" data-target="additional-starters">
-                            <span>See More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Main Courses -->
-                <div class="menu-category" id="mains">
-                    <h2 class="menu-category-title">Main Courses</h2>
-                    
-                    <div class="menu-items-grid">
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2070" alt="Wagyu Ribeye">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Wagyu Ribeye</h3>
-                                    <span class="price">$65</span>
-                                </div>
-                                <p>300g premium wagyu ribeye with bone marrow butter and triple-cooked chips</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1579349425887-fa71142735ff?q=80&w=1974" alt="Lobster Linguine">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Lobster Linguine</h3>
-                                    <span class="price">$48</span>
-                                </div>
-                                <p>Fresh lobster in a white wine and cherry tomato sauce</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1608835291093-394b0c943a75?q=80&w=1974" alt="Rack of Lamb">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Rack of Lamb</h3>
-                                    <span class="price">$42</span>
-                                </div>
-                                <p>Herb-crusted rack of lamb, dauphinoise potatoes, and red wine jus</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1770" alt="Pan-Seared Sea Bass">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Pan-Seared Sea Bass</h3>
-                                    <span class="price">$38</span>
-                                </div>
-                                <p>With saffron risotto, asparagus, and lemon butter sauce</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?q=80&w=2069" alt="Beef Wellington">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Beef Wellington</h3>
-                                    <span class="price">$55</span>
-                                </div>
-                                <p>Prime beef fillet, mushroom duxelles, wrapped in puff pastry</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="additional-items" id="additional-mains">
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?q=80&w=1974" alt="Duck Breast">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Duck Breast</h3>
-                                    <span class="price">$39</span>
-                                </div>
-                                <p>Pan-roasted duck breast with cherry sauce and fondant potatoes</p>
-                            </div>
-                        </div>
-                        
-                        <div class="menu-card" data-category="mains">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1673108932871-6994b226482b?q=80&w=1974" alt="Mushroom Risotto">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Mushroom Risotto</h3>
-                                    <span class="price">$32</span>
-                                </div>
-                                <p>Wild mushroom risotto with truffle oil and parmesan</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="see-more-btn-container">
-                        <button class="see-more-btn" data-target="additional-mains">
-                            <span>See More</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Desserts -->
-                <div class="menu-category" id="desserts">
-                    <h2 class="menu-category-title">Desserts</h2>
-                    
-                    <div class="menu-items-grid">
-                        <div class="menu-card" data-category="desserts">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1611329695518-1763319f3551?q=80&w=1974" alt="Chocolate Fondant">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Chocolate Fondant</h3>
-                                    <span class="price">$14</span>
-                                </div>
-                                <p>Dark chocolate fondant with salted caramel ice cream</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="desserts">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?q=80&w=2070" alt="Crème Brûlée">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Crème Brûlée</h3>
-                                    <span class="price">$12</span>
-                                </div>
-                                <p>Classic vanilla bean crème brûlée with shortbread</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="desserts">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1974" alt="Pavlova">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Pavlova</h3>
-                                    <span class="price">$13</span>
-                                </div>
-                                <p>Meringue nest with seasonal berries and Chantilly cream</p>
-                            </div>
-                        </div>
-
-                        <div class="menu-card" data-category="desserts">
-                            <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1964" alt="Tiramisu">
-                            </div>
-                            <div class="menu-card-content">
-                                <div class="menu-card-header">
-                                    <h3>Tiramisu</h3>
-                                    <span class="price">$13</span>
-                                </div>
-                                <p>Coffee-soaked ladyfingers with mascarpone and cocoa</p>
+                                <p>Chicken pieces cooked in aromatic curry sauce</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Drinks -->
-                <div class="menu-category" id="drinks">
-                    <h2 class="menu-category-title">Drinks</h2>
+                <!-- Breakfast -->
+                <div class="menu-category" data-category="breakfast">
+                    <h2 class="menu-category-title">Breakfast</h2>
                     
                     <div class="menu-items-grid">
-                        <div class="menu-card" data-category="drinks">
+                        <div class="menu-card" data-category="breakfast">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1580938155268-8f12101f353b?q=80&w=1974" alt="Signature Gold Martini">
+                                <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=1974" alt="Black Tea">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Signature Gold Martini</h3>
-                                    <span class="price">$16</span>
+                                    <h3>Black Tea</h3>
+                                    <span class="price">50/=</span>
                                 </div>
-                                <p>Vodka, Goldschlager, and lemon twist</p>
+                                <p>Traditional black tea</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="drinks">
+                        <div class="menu-card" data-category="breakfast">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=1974" alt="Aged Negroni">
+                                <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?q=80&w=1974" alt="Milk Tea">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Aged Negroni</h3>
-                                    <span class="price">$14</span>
+                                    <h3>Milk Tea</h3>
+                                    <span class="price">60/=</span>
                                 </div>
-                                <p>Barrel-aged gin, Campari, and vermouth</p>
+                                <p>Tea brewed with milk and spices</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="drinks">
+                        <div class="menu-card" data-category="breakfast">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1770" alt="Fine Wine Selection">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1770" alt="Mandazi">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Fine Wine Selection</h3>
-                                    <span class="price">From $12</span>
+                                    <h3>Mandazi</h3>
+                                    <span class="price">20/=</span>
                                 </div>
-                                <p>Extensive wine list curated by our sommelier</p>
+                                <p>East African fried bread</p>
                             </div>
                         </div>
 
-                        <div class="menu-card" data-category="drinks">
+                        <div class="menu-card" data-category="breakfast">
                             <div class="menu-card-image">
-                                <img src="https://images.unsplash.com/photo-1549072778-8d3ec5b1dbd1?q=80&w=1974" alt="Whiskey Tasting Flight">
+                                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=1770" alt="Samosa">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Whiskey Tasting Flight</h3>
-                                    <span class="price">$22</span>
+                                    <h3>Samosa</h3>
+                                    <span class="price">50/=</span>
                                 </div>
-                                <p>Selection of premium whiskeys with tasting notes</p>
+                                <p>Triangular pastry filled with spiced meat or vegetables</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Chef's Specials -->
-                <div class="menu-category" id="specials">
-                    <h2 class="menu-category-title">Chef's Specials</h2>
+                <!-- Beverages -->
+                <div class="menu-category" data-category="beverages">
+                    <h2 class="menu-category-title">Beverages</h2>
                     
                     <div class="menu-items-grid">
-                        <div class="menu-card special-card" data-category="specials">
+                        <div class="menu-card" data-category="beverages">
                             <div class="menu-card-image">
-                                <div class="special-badge">Chef's Special</div>
-                                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1769" alt="Tomahawk Steak">
+                                <img src="https://images.unsplash.com/photo-1596392301391-6922e16e6e12?q=80&w=1772" alt="Pineapple Juice">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Tomahawk Steak</h3>
-                                    <span class="price">$120</span>
+                                    <h3>Pineapple Juice</h3>
+                                    <span class="price">100/=</span>
                                 </div>
-                                <p>32oz dry-aged tomahawk steak for two with signature sides</p>
+                                <p>Fresh tropical pineapple juice</p>
                             </div>
                         </div>
 
-                        <div class="menu-card special-card" data-category="specials">
+                        <div class="menu-card" data-category="beverages">
                             <div class="menu-card-image">
-                                <div class="special-badge">Chef's Special</div>
-                                <img src="https://images.unsplash.com/photo-1625943553852-781c6dd46faa?q=80&w=1974" alt="Seafood Tower">
+                                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=1954" alt="Mixed Juice">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Seafood Tower</h3>
-                                    <span class="price">$140</span>
+                                    <h3>Mixed Juice</h3>
+                                    <span class="price">150/=</span>
                                 </div>
-                                <p>Lobster, king crab, oysters, prawns, and more on a grand seafood display</p>
+                                <p>Blend of seasonal fruits</p>
                             </div>
                         </div>
 
-                        <div class="menu-card special-card" data-category="specials">
+                        <div class="menu-card" data-category="beverages">
                             <div class="menu-card-image">
-                                <div class="special-badge">Chef's Special</div>
-                                <img src="https://images.unsplash.com/photo-1564436872-f6d81182df85?q=80&w=1974" alt="Chef's Tasting Menu">
+                                <img src="https://images.unsplash.com/photo-1587049352851-8d4b89133611?q=80&w=1770" alt="Watermelon">
                             </div>
                             <div class="menu-card-content">
                                 <div class="menu-card-header">
-                                    <h3>Chef's Tasting Menu</h3>
-                                    <span class="price">$95</span>
+                                    <h3>Watermelon</h3>
+                                    <span class="price">50/=</span>
                                 </div>
-                                <p>Five-course seasonal tasting menu with optional wine pairing</p>
+                                <p>Fresh watermelon slices</p>
+                            </div>
+                        </div>
+
+                        <div class="menu-card" data-category="beverages">
+                            <div class="menu-card-image">
+                                <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1770" alt="Fruit Salad">
+                            </div>
+                            <div class="menu-card-content">
+                                <div class="menu-card-header">
+                                    <h3>Fruit Salad</h3>
+                                    <span class="price">100/=</span>
+                                </div>
+                                <p>Mix of fresh seasonal fruits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accompaniments -->
+                <div class="menu-category" data-category="accompaniments">
+                    <h2 class="menu-category-title">Accompaniments</h2>
+                    
+                    <div class="menu-items-grid">
+                        <div class="menu-card" data-category="accompaniments">
+                            <div class="menu-card-image">
+                                <img src="https://images.unsplash.com/photo-1612360090105-070352907c32?q=80&w=1770" alt="Ugali">
+                            </div>
+                            <div class="menu-card-content">
+                                <div class="menu-card-header">
+                                    <h3>Ugali</h3>
+                                    <span class="price">50/=</span>
+                                </div>
+                                <p>Traditional cornmeal staple</p>
+                            </div>
+                        </div>
+
+                        <div class="menu-card" data-category="accompaniments">
+                            <div class="menu-card-image">
+                                <img src="https://images.unsplash.com/photo-1565348314040-61dbfc5404bc?q=80&w=1770" alt="Chapati">
+                            </div>
+                            <div class="menu-card-content">
+                                <div class="menu-card-header">
+                                    <h3>Chapati</h3>
+                                    <span class="price">40/=</span>
+                                </div>
+                                <p>Flat, round unleavened bread</p>
+                            </div>
+                        </div>
+
+                        <div class="menu-card" data-category="accompaniments">
+                            <div class="menu-card-image">
+                                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=1770" alt="Chips (Fries)">
+                            </div>
+                            <div class="menu-card-content">
+                                <div class="menu-card-header">
+                                    <h3>Chips (Fries)</h3>
+                                    <span class="price">150/=</span>
+                                </div>
+                                <p>Golden-brown crispy potato fries</p>
+                            </div>
+                        </div>
+
+                        <div class="menu-card" data-category="accompaniments">
+                            <div class="menu-card-image">
+                                <img src="https://images.unsplash.com/photo-1600699899970-b1c9fadd45f5?q=80&w=1770" alt="Whole Fish">
+                            </div>
+                            <div class="menu-card-content">
+                                <div class="menu-card-header">
+                                    <h3>Whole Fish</h3>
+                                    <span class="price">400/=</span>
+                                </div>
+                                <p>Fresh fish prepared whole, fried or grilled</p>
                             </div>
                         </div>
                     </div>
@@ -461,7 +311,7 @@
             <div class="download-card">
                 <div class="download-content">
                     <h2>Want to take our menu with you?</h2>
-                    <p>Download our full menu including seasonal specials, wine list, and more.</p>
+                    <p>Download our full menu including seasonal specials, catering options, and more.</p>
                     <a href="#" class="download-btn">
                         <span>Download PDF Menu</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -487,8 +337,8 @@
                     <div>
                         <a href="#" class="footer-logo">GOLD ARK</a>
                         <p class="footer-description">
-                            A culinary journey of exquisite flavors and elegant ambiance, 
-                            where tradition meets innovation.
+                            Authentic East African cuisine in a welcoming atmosphere. 
+                            Experience the taste of tradition in every bite.
                         </p>
                         <div class="social-links">
                             <a href="#" class="social-link" aria-label="Facebook">
@@ -553,95 +403,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
-    <script>
-        // Menu Filtering
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Menu filter functionality
-            const filterButtons = document.querySelectorAll('.menu-filter-btn');
-            const menuCards = document.querySelectorAll('.menu-card');
-            const menuCategories = document.querySelectorAll('.menu-category');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filterValue = button.getAttribute('data-category');
-                    
-                    if (filterValue === 'all') {
-                        // Show all categories
-                        menuCategories.forEach(category => {
-                            category.style.display = 'block';
-                        });
-                    } else {
-                        // Show only selected category
-                        menuCategories.forEach(category => {
-                            if (category.id === filterValue) {
-                                category.style.display = 'block';
-                            } else {
-                                category.style.display = 'none';
-                            }
-                        });
-                    }
-                    
-                    // Animate the visible cards
-                    const visibleCards = document.querySelectorAll('.menu-card[data-category="' + (filterValue === 'all' ? 'starters' : filterValue) + '"]');
-                    visibleCards.forEach((card, index) => {
-                        card.style.animationDelay = (index * 0.1) + 's';
-                    });
-                });
-            });
-            
-            // See More button functionality
-            const seeMoreButtons = document.querySelectorAll('.see-more-btn');
-            
-            seeMoreButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.getAttribute('data-target');
-                    const additionalItems = document.getElementById(targetId);
-                    
-                    additionalItems.classList.toggle('show');
-                    button.classList.toggle('expanded');
-                    
-                    if (additionalItems.classList.contains('show')) {
-                        button.querySelector('span').textContent = 'See Less';
-                    } else {
-                        button.querySelector('span').textContent = 'See More';
-                    }
-                });
-            });
-            
-            // Intersection Observer for animations
-            const animatedElements = document.querySelectorAll('.menu-category, .menu-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
+    <div id="toast-container" class="toast-container"></div>
 
-            // PDF Download (placeholder function)
-            const downloadBtn = document.querySelector('.download-btn');
-            
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    alert('PDF menu download would start here in production.');
-                });
-            }
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/menu-page.js"></script>
 </body>
 </html>
